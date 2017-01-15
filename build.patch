@@ -1,0 +1,13 @@
+--- clinfo-2.1.16.01.12/Makefile~	2016-01-12 10:51:23.000000000 +0000
++++ clinfo-2.1.16.01.12/Makefile	2017-01-15 14:46:42.568453743 +0000
+@@ -30,5 +30,10 @@
+ 
+ sparse: clinfo.c
+ 	$(SPARSE) $(CPPFLAGS) $(CFLAGS) $(SPARSEFLAGS) $^
++	
++install: clinfo
++	mkdir -p $(DESTDIR)/usr/bin
++	cp clinfo  $(DESTDIR)/usr/bin
++
+ 
+ .PHONY: clean sparse
