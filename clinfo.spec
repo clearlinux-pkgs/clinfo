@@ -4,12 +4,12 @@
 #
 Name     : clinfo
 Version  : 2.1.17.02.09
-Release  : 2
+Release  : 3
 URL      : https://github.com/Oblomov/clinfo/archive/2.1.17.02.09.tar.gz
 Source0  : https://github.com/Oblomov/clinfo/archive/2.1.17.02.09.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : Public-Domain
+License  : CC0-1.0 Public-Domain
 Requires: clinfo-bin
 BuildRequires : beignet-dev
 BuildRequires : pkgconfig(OpenCL)
@@ -37,11 +37,11 @@ bin components for the clinfo package.
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1487260518
+export SOURCE_DATE_EPOCH=1487260609
 make V=1  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1487260518
+export SOURCE_DATE_EPOCH=1487260609
 rm -rf %{buildroot}
 %make_install
 
