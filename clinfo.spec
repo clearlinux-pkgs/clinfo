@@ -4,7 +4,7 @@
 #
 Name     : clinfo
 Version  : 2.1.17.02.09
-Release  : 3
+Release  : 4
 URL      : https://github.com/Oblomov/clinfo/archive/2.1.17.02.09.tar.gz
 Source0  : https://github.com/Oblomov/clinfo/archive/2.1.17.02.09.tar.gz
 Summary  : No detailed summary available
