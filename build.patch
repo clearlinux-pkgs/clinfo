@@ -11,3 +11,39 @@
 +
  
  .PHONY: clean sparse
+--- clinfo-2.2.17.08.25/Makefile~	2017-08-25 10:50:00.000000000 +0000
++++ clinfo-2.2.17.08.25/Makefile	2017-09-18 01:09:41.902422742 +0000
+@@ -21,7 +21,7 @@
+ RM ?= rm -f
+ 
+ # Installation paths and modes
+-PREFIX ?= /usr/local
++PREFIX ?= /usr
+ BINDIR ?= $(PREFIX)/bin
+ BINMODE ?= 555
+ MANDIR ?= $(PREFIX)/man
+--- clinfo-2.2.17.08.25/Makefile~	2017-09-18 01:09:41.000000000 +0000
++++ clinfo-2.2.17.08.25/Makefile	2017-09-18 01:11:47.772929089 +0000
+@@ -58,10 +58,10 @@
+ 	install -d $@
+ 
+ $(BINDIR)/$(PROG): $(PROG) $(BINDIR)
+-	install -p -m $(BINMODE) $(PROG) $@
++	install -p -m $(BINMODE) $(PROG) $(DESTDIR)/$@
+ 
+ $(MANDIR)/$(MAN): $(MAN) $(MANDIR)/man1
+-	install -p -m $(MANMODE) $(MAN) $@
++	install -p -m $(MANMODE) $(MAN) $(DESTDIR)/$@
+ 
+ install: $(BINDIR)/$(PROG) $(MANDIR)/$(MAN)
+ 
+--- clinfo-2.2.17.08.25/Makefile~	2017-09-18 01:11:47.000000000 +0000
++++ clinfo-2.2.17.08.25/Makefile	2017-09-18 01:13:53.740821634 +0000
+@@ -63,7 +63,6 @@
+ $(MANDIR)/$(MAN): $(MAN) $(MANDIR)/man1
+ 	install -p -m $(MANMODE) $(DESTDIR)$(MAN) $@
+ 
+-install: $(BINDIR)/$(PROG) $(MANDIR)/$(MAN)
+ 
+ 
+ sparse: $(PROG).c
