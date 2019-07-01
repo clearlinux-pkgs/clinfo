@@ -4,7 +4,7 @@
 #
 Name     : clinfo
 Version  : 2.2.18.04.06
-Release  : 11
+Release  : 12
 URL      : https://github.com/Oblomov/clinfo/archive/2.2.18.04.06.tar.gz
 Source0  : https://github.com/Oblomov/clinfo/archive/2.2.18.04.06.tar.gz
 Summary  : No detailed summary available
@@ -12,7 +12,7 @@ Group    : Development/Tools
 License  : CC0-1.0 Public-Domain
 Requires: clinfo-bin = %{version}-%{release}
 Requires: clinfo-license = %{version}-%{release}
-BuildRequires : beignet-dev
+BuildRequires : opencl-headers-dev
 BuildRequires : pkgconfig(OpenCL)
 Patch1: build.patch
 
@@ -48,11 +48,20 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1538722920
+export SOURCE_DATE_EPOCH=1562019448
+export GCC_IGNORE_WERROR=1
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 make  %{?_smp_mflags}
 
+
 %install
-export SOURCE_DATE_EPOCH=1538722920
+export SOURCE_DATE_EPOCH=1562019448
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/clinfo
 cp LICENSE %{buildroot}/usr/share/package-licenses/clinfo/LICENSE
