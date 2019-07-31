@@ -4,7 +4,7 @@
 #
 Name     : clinfo
 Version  : 2.2.18.04.06
-Release  : 12
+Release  : 13
 URL      : https://github.com/Oblomov/clinfo/archive/2.2.18.04.06.tar.gz
 Source0  : https://github.com/Oblomov/clinfo/archive/2.2.18.04.06.tar.gz
 Summary  : No detailed summary available
