@@ -4,7 +4,7 @@
 #
 Name     : clinfo
 Version  : 2.2.18.04.06
-Release  : 13
+Release  : 14
 URL      : https://github.com/Oblomov/clinfo/archive/2.2.18.04.06.tar.gz
 Source0  : https://github.com/Oblomov/clinfo/archive/2.2.18.04.06.tar.gz
 Summary  : No detailed summary available
@@ -41,30 +41,31 @@ license components for the clinfo package.
 
 %prep
 %setup -q -n clinfo-2.2.18.04.06
+cd %{_builddir}/clinfo-2.2.18.04.06
 %patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1562019448
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1604358421
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 make  %{?_smp_mflags}
 
 
 %install
-export SOURCE_DATE_EPOCH=1562019448
+export SOURCE_DATE_EPOCH=1604358421
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/clinfo
-cp LICENSE %{buildroot}/usr/share/package-licenses/clinfo/LICENSE
+cp %{_builddir}/clinfo-2.2.18.04.06/LICENSE %{buildroot}/usr/share/package-licenses/clinfo/5447aca2f62e3ba417ad9ba64f6567d7fbac8ace
 %make_install
 
 %files
@@ -76,4 +77,4 @@ cp LICENSE %{buildroot}/usr/share/package-licenses/clinfo/LICENSE
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/clinfo/LICENSE
+/usr/share/package-licenses/clinfo/5447aca2f62e3ba417ad9ba64f6567d7fbac8ace
